@@ -44,7 +44,7 @@ The code itself, can be accessed from GitHub, so you will need a GitHub account 
 	
 3. Clone the Ushahidi source code into the folder you want it accessible from.  The recursive option is required as many of the plugins are installed as GIT submodules:
 
-		git clone --recursive git@bitbucket.org:andydixon/ushahidi_web-wvspeed.git <foldername>
+		git clone --recursive git@github.com:builtbyclick/speed-portal.git <foldername>
 	
 4. Change the permissions:
 
