@@ -1,0 +1,21 @@
+[submodule "application/i18n"]
+	path = application/i18n
+	url = git://github.com/ushahidi/Ushahidi-Localizations.git
+[submodule "plugins/nexmo"]
+	path = plugins/nexmo
+	url = https://github.com/ushahidi/Ushahidi-plugin-nexmo.git
+[submodule "plugins/timespan"]
+	path = plugins/timespan
+	url = https://github.com/rjmackay/timespan.git
+[submodule "modules/newrelic"]
+	path = modules/newrelic
+	url = git://github.com/rjmackay/kohana2-module-newrelic.git
+[submodule "plugins/frontlinecloud"]
+	path = plugins/frontlinecloud
+	url = git://github.com/rjmackay/ushahidi-plugin-frontlinecloud.git
+[submodule "plugins/sharing_two"]
+	path = plugins/sharing_two
+	url = https://github.com/rjmackay/Ushahidi-plugin-sharing_two.git
+[submodule "plugins/ushahidiapilibrary"]
+	path = plugins/ushahidiapilibrary
+	url = https://github.com/rjmackay/ushahidiapilibrary.git

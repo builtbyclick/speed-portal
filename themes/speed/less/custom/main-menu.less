@@ -1,0 +1,33 @@
+#mainmenu {
+	background: transparent;
+	margin-bottom: @verticalPadding;
+	//.makeColumn(12);
+
+	.navbar-inner {
+	  min-height: @navbarHeight;
+	  padding: 0px;
+	  padding: 0px;
+	}
+	.navbar {
+		.nav {
+			width: 100%;
+			li {
+				a {
+					text-transform: uppercase;
+					font-weight: normal;
+					padding: 7px 30px 7px 0px;
+				}
+				&.pull-right {
+					float: right;
+					a {
+						padding: 7px 0 7px 30px;
+					}
+				}
+				&:last-child a {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+}

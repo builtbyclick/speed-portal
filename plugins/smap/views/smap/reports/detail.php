@@ -1,0 +1,1 @@
+<h2>Please use the Speed theme</h2>

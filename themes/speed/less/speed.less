@@ -1,0 +1,95 @@
+/*!
+ * Loading bootstrap for Speed theme
+ */
+
+// WV Custom - import first
+@import "custom/font.less";
+
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@verticalPadding: 15px;
+@horizontalPadding: 10px;
+
+@import "bootstrap/mixins.less";
+
+// CSS Reset
+@import "bootstrap/reset.less";
+
+// Grid system and page structure
+@import "bootstrap/scaffolding.less";
+@import "bootstrap/grid.less";
+@import "bootstrap/layouts.less";
+
+// Base CSS
+ @import "bootstrap/type.less";
+// @import "bootstrap/code.less";
+ @import "bootstrap/forms.less";
+ @import "bootstrap/tables.less";
+
+// Components: common
+// @import "bootstrap/sprites.less";
+// @import "bootstrap/dropdowns.less";
+// @import "bootstrap/wells.less";
+@import "bootstrap/component-animations.less";
+// @import "bootstrap/close.less";
+
+// Components: Buttons & Alerts
+@import "bootstrap/buttons.less";
+@import "bootstrap/button-groups.less";
+@import "bootstrap/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "bootstrap/navs.less";
+@import "bootstrap/navbar.less";
+// @import "bootstrap/breadcrumbs.less";
+@import "bootstrap/pagination.less";
+// @import "bootstrap/pager.less";
+
+// Components: Popovers
+@import "bootstrap/modals.less";
+@import "bootstrap/tooltip.less";
+@import "bootstrap/popovers.less";
+
+.popover-content {
+	font-size: 0.7em;
+}
+
+// Components: Misc
+// @import "bootstrap/thumbnails.less";
+// @import "bootstrap/media.less";
+// @import "bootstrap/labels-badges.less";
+// @import "bootstrap/progress-bars.less";
+@import "bootstrap/accordion.less";
+// @import "bootstrap/carousel.less";
+// @import "bootstrap/hero-unit.less";
+
+@import "bootswatch.less";
+
+// Utility classes
+@import "bootstrap/utilities.less"; // Has to be last to override when necessary
+
+
+// WV Custom - import last
+@import "custom/global.less";
+@import "custom/header.less";
+@import "custom/main-menu.less";
+@import "custom/middle.less";
+@import "custom/page-main.less";
+@import "custom/accordion.less";
+
+
+// Pages
+@import "custom/login.less";
+@import "custom/reports.less";
+@import "custom/reports-single.less";
+@import "custom/rapid-assessments.less";
+@import "custom/questions.less";
+@import "custom/get-alerts.less";
+@import "custom/submit-new-report.less";
+
+@import "custom/user-profile.less";
+
+@import "custom/footer.less";
+
+@import "custom/snapshot.less";
+

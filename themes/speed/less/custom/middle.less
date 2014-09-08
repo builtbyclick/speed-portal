@@ -1,0 +1,220 @@
+.reports-list {
+	i {
+		float: left;
+		position: relative;
+		top: 6px;
+	}
+	p {
+		padding-left: 26px;
+	}
+}
+
+.report-item-time {
+	color: @grayLight;
+}
+
+#middle {
+	.makeRow();
+	.speed-left-column { // Stupid column name to avoid clashes with existing styling
+		.makeColumn(4);
+		position: relative;
+	}
+	#latest-updates {
+		position: absolute;
+		z-index: 1100;
+		overflow: visible;
+		.box();
+		.makeColumn(4);
+		.transition( width 1s );
+		margin-left: 0;
+
+		//min-height: 517px;
+		//max-height: 817px;
+		height: 667px;
+
+		.reports-list {
+			height: 667 - 193px;
+			//min-height: 324px;
+			//max-height: 624px;
+			overflow-y: scroll;
+		}
+
+		#submit-a-report {
+			padding: 12px 0 12px;
+		}
+
+		.list {
+			.makeColumn(4);
+			margin-left: 0;
+			padding: 0 10px;
+			.reports {
+				height: 517px;
+				overflow-y: scroll;
+			}
+			h3, h4 {
+				margin-top: 0;
+				font-weight: normal;
+				padding: 0 0 10px 0;
+				text-transform: uppercase;
+			}
+			h5 {
+				font-weight: bold;
+				text-transform: uppercase;
+				margin-top: 0;
+				background-color: transparent;
+				span {
+					color: @orange;
+				}
+			}
+			input[type="text"] {
+				width: 193px;
+				padding: 5px 5px 5px 10px;
+			}
+			> * {
+				margin-left: @horizontalPadding;
+				margin-right: @horizontalPadding;
+			}
+			ul {
+				list-style: none;
+				margin-left: 0;
+				margin-right: 0;
+				li {
+					h4,h5 { font-size: 0.9em; margin: 0; line-height: 1.5em;}
+					border-bottom: 1px solid @grayLighter;
+					padding: 10px 10px 0 10px;
+					&:last { border-bottom: none; }
+				}
+			}
+			.popover-title {
+				padding: 9px 14px;
+			}
+			.popover-content {
+				ul li, p {
+					padding: 0;
+				}
+				img {
+					width: 200px;
+				}
+			}
+
+		}
+		.filters {
+			height: (667px - 2 * @verticalPadding);
+			//min-height: (517px - 2 * @verticalPadding);
+			//max-height: (817px - 2 * @verticalPadding);
+			overflow-y: scroll;
+
+			display: none;
+			.makeColumn(4);
+			position: absolute;
+			left: (@gridColumnWidth * 4) + (@gridGutterWidth * 3);
+			.category-column {
+				list-style: none;
+				//margin: 0;
+				ul { list-style: none; margin: 0 0 0 10px; }
+				> li > label {
+					//cursor: default;
+					input[disabled] {
+						display: none;
+					}
+				}
+				input {
+					margin: 0 5px 3px 0 ;
+				}
+			}
+			ul { list-style: none; margin: 0 0 0 10px; }
+			> li > label {
+				cursor: default;
+				input { display: none; }
+			}
+			input {
+				margin: 0 5px 3px 0 ;
+			}
+		}
+		.paused {
+			position: absolute;
+			top: 15px;
+			left: 193px;
+			text-align: center;
+			font-size: 14px;
+		}
+		.filter-button {
+			position: absolute;
+			top: 15px;
+			right: 0;
+			margin-right: 0;
+			text-align: right;
+			padding-right: 10px;
+			font-size: 14px;
+			z-index: 9999;
+			.filters-close { display: none; }
+		}
+	}
+	#content, #main, .content, .main {
+		.makeColumn(8, 4);
+		.box();
+	}
+	#content .blocks {
+		display: block;
+		margin-left: -10px;
+		margin-right: 0;
+	}
+	// Blocks
+	ul.blocks {
+		display: inline; list-style: none; margin: 0; padding: 0;
+		.makeRow();
+		> li { display: inline; }
+
+		&.blocks-main {
+			.content-block {
+				.makeColumn(4);
+				min-height: 235px;
+			}
+		}
+		&.blocks-left {
+			.content-block {
+				margin-top: 517 + @verticalPadding;
+				&.dummy {
+					opacity: 0;
+					background: transparent;
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	.content-block {
+		//.makeColumn(4);
+		.box();
+		padding: 10px;
+		h5 {
+			.headerWithHr();
+		}
+		p {
+			padding: 0px;
+		}
+		.statistic span {
+			font-size: 40px;
+			padding-right: 10px;
+		}
+
+
+		// Question list on homepage
+		.question-list-block {
+			margin-left: 2.1em;
+		}
+	}
+
+
+	// Expanded filter
+	&.filterOpen {
+		#latest-updates {
+			.makeColumn(8); width: 632px; .transition( width 1s );
+			margin-left: 0;
+			.filters { display: block; }
+			.filter-button {
+				.filters-close { display: block; }
+				.filters-open { display: none; }
+			}
+		}
+	}
+}

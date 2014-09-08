@@ -1,0 +1,5 @@
+SERVICE ID,SERVICE ACCOUNT,LEVEL ID,FIRST NAME,LAST NAME,LOCATION NAME,LATITUDE,LONGITUDE,EMAIL,PHONE,URL
+SMAP,Sara Test,5,Sara,Test4,London,0,0,sara@test1.com,,
+Twitter,saratest,3,Sara,Test3,New York,0,0,,6460000000,
+SMS,6460000000,2,Saraaa,Test1,,51,0.1,,,
+Email,sara@example.com,4,,,,,,,,

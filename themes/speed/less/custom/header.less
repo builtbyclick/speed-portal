@@ -1,0 +1,247 @@
+/* ---- Header Nav Bar ---- */
+#mainmenu .navbar .nav {
+	font-size: 16px;
+}
+
+#header_nav {
+	height:30px;
+	background-color: #585858;
+	border-bottom: 1px solid #FFFFFF;
+	color:#CCCCCC;
+	padding: 10px 0 8px 0;
+	margin:0;
+	width:100%;
+	-moz-box-shadow: 1px 1px 1px #CCC;
+	-webkit-box-shadow: 1px 1px 1px #CCC;
+	box-shadow: 1px 1px 1px #CCC;
+}
+
+#header_nav a {
+	color:#CCCCCC !important;
+	text-decoration:none;
+	display:inline-block;
+	height:30px;
+	padding: 0px 10px 0px 10px;
+}
+
+#header_nav a:hover {
+	background-color:#CCCCCC;
+	color:#000000 !important;
+	text-decoration:none;
+}
+
+#header_nav ul#header_nav_left a:hover {
+	background-color:transparent;
+	color:#CCCCCC !important;
+}
+
+#header_nav img {
+	border: 1px solid #CCCCCC;
+	vertical-align:middle;
+}
+
+#header_nav img {
+	border: 0;
+	vertical-align:middle;
+	margin:0;
+}
+
+
+#header_nav_left {
+	float: left;
+	height: 30px;
+	padding:0 100px;
+	margin:0;
+}
+
+#header_nav_left li {
+	list-style-type: none;
+	display: inline;
+}
+
+#header_nav_right {
+	padding:0 100px;
+	margin:0;
+}
+
+#header_nav_right li {
+	list-style-type: none;
+}
+
+#header_nav_right li.header_nav_user a {
+	padding-top: 0;
+	height: 26px;
+	padding-left: 15px;
+}
+
+#header_nav_right li.header_nav_user a:hover {
+	background-color: transparent;
+	color: #CCCCC8 !important;
+	font-weight: normal;
+}
+
+
+#header_nav_right li.header_nav_has_dropdown a span.header_nav_icon {
+	float: right;
+	width: 14px;
+	height: 14px;
+	background-position: center -24px;
+	margin: 11px 5px 0;
+}
+
+#header_nav_right li .header_nav_dropdown {
+	position:absolute;
+	z-index: 1500;
+	right: 100px;
+	text-align: left;
+	border: 1px solid #FFFFFF;
+	border-top: 0px;
+	background: #585858;
+	padding: 5px 0;
+	margin-top: 18px;
+	float:right;
+	top:30px;
+
+	-moz-box-shadow: 1px 1px 1px #CCC;
+	-webkit-box-shadow: 1px 1px 1px #CCC;
+	-o-box-shadow: 1px 1px 1px #CCC;
+
+	box-shadow: 1px 1px 1px #CCC;
+}
+
+#header_nav_right li .header_nav_dropdown ul {
+	margin: 0 0 10px 0;
+	li {
+		padding-left: 5px;
+	}
+}
+
+#header_nav_right li .header_nav_dropdown #userpass_form ul,
+#header_nav_right li .header_nav_dropdown .userpass_form ul {
+	padding-bottom: 7px;
+	margin-bottom: 7px;
+	border-bottom: 1px solid #fff;
+}
+
+#header_nav .header_nav_user {
+	float:right;
+	clear:right;
+}
+
+#header_nav_left h1 {
+	font-size:100%;
+	font-weight:normal;
+	margin:0;
+	padding:0;
+}
+
+#header_nav .left_bar, header .right_bar {
+	float: left;
+	height: 30px;
+	background-color:red;
+}
+
+#header_nav .center {
+	float: left;
+	margin: 0;
+}
+
+#header_nav .logo {
+	vertical-align:middle;
+}
+
+#header_nav .logo a {
+	display: block;
+	width: 25px;
+	height: 25px;
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+	padding-right: 5px;
+	margin: 0px 15px;
+}
+
+#header_nav .logo a:hover {
+	opacity: 0.7;
+	background-color: transparent;
+}
+
+#header_nav .nodisplay, .label {
+	display: none;
+}
+
+#header_nav label {
+	display: block;
+	font-weight: bold;
+	padding: 5px 0px 0px 15px;
+}
+
+#header_nav input {
+	display: block;
+	margin: 0px 15px;
+}
+
+#header_nav input.header_nav_login_btn {
+	margin: 15px;
+	float: right;
+}
+
+#header_nav .bignext {
+	font-size:20px;
+}
+
+body {
+	margin:0;
+	padding:0;
+}
+
+form#header_nav_userforgot_form {
+	display:none;
+}
+
+
+#header{
+	position: relative;
+	background: @white;
+	margin-top: @verticalPadding;
+	margin-bottom: @verticalPadding;
+	#logo {
+		.makeRow();
+		}
+		img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		float: right;
+		background-size: 100%;
+		width: 163px;
+		height: 99px;
+	}
+	h1 {
+		.makeColumn(12);
+		text-align: center;
+		font-weight: normal;
+		text-transform: uppercase;
+		margin: 0;
+		padding: 24px;
+		span {
+			font-family: 'GillSans';
+			font-weight: bold;
+		}
+		a {
+			color: @grayDark;
+		}
+	}
+}
+
+.submit-a-report {
+	border-bottom: 1px solid;
+	a {
+		padding-bottom: 0;
+	}
+}
+
+.login-list, .login-button {
+	float: right;
+}
