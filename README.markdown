@@ -1,158 +1,120 @@
-Ushahidi Platform
-=================
-The Ushahidi Platform is an open source web application for information collection, vizualisation and interactive 
-mapping. It allows people to collect and share their own stories using various mediums such
-as SMS, Web Forms, Email or Twitter. For more information about the platform and use cases (case studies) visit: http://www.ushahidi.com
+#Basic Speed Portal Installation
+
+##Important: 
+
+**It is advised to work with someone in your organisation who understands software programming and servers.  The following instructions assume experince with Linux server administration.**
+
+##Requirements
+
+The following must be installed in the target system:
+
+- PHP version >= 5.2.3
+- MySQL version >= 5.0
+- An HTTP Server such as:
+	- Apache 1.3+
+	- Apache 2.0+
+	- Lighttpd
+	- Microsoft Internet Information Server (MS IIS)
+	- Nginx
+- Unicode support in the operating system
+
+Additionally, the following is a list of PHP extensions that must be installed on your server:
+
+- PCRE (<http://php.net/pcre>) must be compiled with --enable-utf8 and --enable-unicode-properties for UTF-8 functions to work properly.
+- iconv (<http://php.net/iconv>) is required for UTF-8 transliteration.
+- mcrypt (<http://php.net/mcrypt>) is required for encryption.
+- SPL (<http://php.net/spl>) is required for several core libraries
+- mbstring (<http://php.net/mbstring>) which speeds up Kohana's UTF-8 functions.
+- cURL (<http://php.net/curl>) which is used to access remote sites.
+- MySQL (<http://php.net/mysql>) is required for database access.
+- GD (<http://php.net/gd>) is required for image manipulation.
+- IMAP (<http://php.net/imap>) is required for handling e-mails.
+
+The code itself, can be accessed from GitHub, so you will need a GitHub account to download it.
+
+##Installation
+
+###Creating a new Ushahidi instance
+
+1. SSH into the server as root, or su­ to root
+	
+2. Navigate to the web directory:
+
+		cd /var/www/website
+	
+3. Clone the Ushahidi source code into the folder you want it accessible from.  The recursive option is required as many of the plugins are installed as GIT submodules:
+
+		git clone --recursive git@bitbucket.org:andydixon/ushahidi_web-wvspeed.git <foldername>
+	
+4. Change the permissions:
+
+		cd <foldername>
+		chmod -­R 777 application/config
+		chmod ­-R 777 application/cache
+		chmod ­-R 777 application/logs
+		chmod ­-R 777 media/uploads
+		chmod 777 .htaccess
+	
+###Database
+
+1. Login to MySQL (enter password when prompted)
+
+		mysql ­-u root -p
+	
+2. Create a database for the site:
+
+		CREATE DATABASE <databasename>;
+	
+3. Create a username and password for the site, replacing the databasename, username and password:
+
+		GRANT SELECT, INSERT, DELETE, UPDATE, CREATE, DROP, ALTER, INDEX, LOCK TABLES on <databasename>.* TO '<username>'@'localhost' IDENTIFIED BY '<password>';
+	
+4. Flush privileges for the new user:
+
+		FLUSH PRIVILEGES;
+
+###Setup
+	
+Visit the new install in a web browser and you will be redirected to the installation wizard.  Follow the on­screen instructions, entering the database name entered previously, the database username and password with the details above, as well as a few other questions.
+
+This will then set up the database for the site, configure the default user and sort out a few initial site related setting
+
+###House keeping
+
+1. Remove the installation directory for security by running this command from within the new folder:
+
+		rm -rf installer
+
+###Manuals
+
+- [Speed General User Guide](http://speedevidence.files.wordpress.com/2013/10/speed-general-user-guide-v2.pdf)
+- [Speed Information Manager Guide](http://speedevidence.files.wordpress.com/2014/09/speed-portal-information-manager-guide.docx)
+- [Speed Login video](http://speedevidence.wordpress.com/2013/10/17/how-to-speed-how-to-login/)
+- [Speed Features video](http://speedevidence.wordpress.com/2013/10/17/how-to-speed-portal-features/)
+- [SMAP Manual](https://speedevidence.files.wordpress.com/2014/09/smap-manual-v2-0.pdf)
+
+###SMAP
+
+####Option One:  
+- Rent a cloud server from Smap Consulting for $100 per month including support
+- Contact Neil Penman: <neilpenman@gmail.com>
+
+####Option Two:  
+- Download SMAP onto your own server
+- Runs on Ubuntu Linux and requires 2GB of Memory & 20GB of disk
+- Download and install the server software from <http://www.smap.com.au/downloads.shtml> 
+- Add backups
+- You will also need Android based smartphones with the "Fieldtask" app loaded on them for the data collection
+- It is recommended to buy the phones locally & check they have the languages you need, GPS, and appropriate screen size
 
 
-System Requirements
--------------------
-To install the platform on your computer/server, the target system must meet the following requirements:
+###FrontlineSMS
+###FrontlineCloud
 
-* PHP version 5.2.3 or greater (5.3 or greater is recommended)
-* MySQL version 5.0 or greater
-* An HTTP Server. Kohana, which Ushahidi is built on, is known to work with the following web servers:
-    - Apache 1.3+
-    - Apache 2.0+
-    - lighttpd
-    - nginx
-    - Microsoft Internet Information Server (MS IIS)
-* Unicode support in the operating system
+- Go to <https://cloud.frontlinesms.com/register> and create an account
+- A mobile phone with sufficient credit on it to send and receive text messages that is connected to the local wifi, with “FrontlineSync” or “SMSsync” app loaded on it
+- FrontlineSMS 
+- Go to <http://www.frontlinesms.com/technologies/download/> to download Desktop App and follow instructions
+- A compatible modem, with sufficient credit on it to send and receive text messages
+- The <http://www.frontlinesms.com> website has lots of easy to use "help" guides and resources available to assist you getting set up.
 
-
-Required Extensions
--------------------
-The follwing is a list of PHP extensions that must be installed on your server in order for Ushahidi to run properly:
-
-* PCRE (http://php.net/pcre) must be compiled with –enable-utf8 and –enable-unicode-properties for UTF-8 functions to work properly.
-* iconv (http://php.net/iconv) is required for UTF-8 transliteration.
-* mcrypt (http://php.net/mcrypt) is required for encryption.
-* SPL (http://php.net/spl) is required for several core libraries.
-* mbstring (http://php.net/mbstring) which speeds up Kohana's UTF-8 functions.
-* cURL (http://php.net/curl) which is used to access remote sites.
-* MySQL (http://php.net/mysql) is required for database access.
-* IMAP (http://php.net/imap) is required for email functionality.
-* GD (http://php.net/gd) is required for image processing
-
-__NOTE: Need to figure out what extensions you already have installed on your server? Here are instructions to do just that: http://jontangerine.com/silo/php/phpinfo/__
-
-
-Optional Server Requirements
-----------------------------
-To use Ushahidi's "Clean URLS" feature on an Apache Web Server, you will need the mod_rewrite module
-and the ability to use local `.htaccess` files. 
-
-###Installing mod_rewrite
-
-#####Debian/Ubuntu flavours of Linux
-    
-    sudo a2enmod rewrite
-
-#####CentOS, OS X and Windows
-
-Make sure the following line is __NOT__ commented in your `httpd.conf`
-
-    LoadModule rewrite_module
-
-
-###Additional Configuration
-To check if local `.htaccess` files are allowed, verify that the "AllowOverride" directive in your Apache config 
-(for the web server directory in which you have installed Ushahidi) has been set to "All" i.e.:
-
-    <Directory [your-document-root-directory]>
-        ...
-        AllowOverride All
-        ...
-    </Directory>
-
-__NOTE:__ 
-
-* Clean URLs means that the URLs of your deployment will not have the 'index.php' prefix
-* You __MUST__ restart your Apache web server after making the changes outlined above
-
-
-Installation
-------------
-* ####Download and extract Ushahidi
-    You can obtain the official release of the software from [the download site](http://download.ushahidi.com). 
-    Alternatively, you can find downloads for the current and previous releases on the [Wiki](https://wiki.ushahidi.com/display/WIKI/Ushahidi+Platform+Downloads)
-    
-    To unzip/extract the archive on a typical Unix/Linux command line:
-    
-        tar -xvf Ushahidi_Web-xxxx.tar.gz
-    
-    or in the case of a zip file:
-
-        unzip Ushahidi_Web-xxxx.zip
-
-    This will create a new directory Ushahidi_Web-xxxx containing all the Ushahidi platform files and directories - Move the contents of this directory
-    into a directory within your webserver's document root or your public HTML directory.
-
-    #####Getting the latest develop code (CAUTION: only do this if you know what you're doing) 
-
-    clone the latest code from github
-
-        git clone --recursive git://github.com/ushahidi/Ushahidi_Web.git
-
-    We add the recursive flag so that git will clone the submodules too      
-
-* ####Ensure the following directories are writable (i.e. have their permission values set to 777)
-    - application/config
-    - application/cache
-    - application/logs
-    - media/uploads
-    - .htaccess
-    
-    On Unix/Linux, you can change the permissions as follows:
-
-        cd path-to-webserver-document-root-directory
-        chmod -R 777 application/config
-        chmod -R 777 application/cache
-        chmod -R 777 application/logs
-        chmod -R 777 media/uploads
-        chmod 777 .htaccess
-        
-    __NOTE: The process of configuring file permissions is different for various operating systems. Here are some helpful links about permissions for the Windows (http://support.microsoft.com/kb/308419) and Unix (http://www.washington.edu/computing/unix/permissions.html) operating systems.__
-
-* ####Create the Ushahidi database
-    Ushahidi stores all its information in a database. You must therefore create this database in order to install Ushahidi. This is done as follows:
-    
-        mysqladmin -u 'username' -p create 'databasename'
-    
-    MySQL will prompt for the password for the <username> database password and then create the initial database files. Next, you must log in and set the 
-    database access rights:
-    
-        mysql -u 'username' -p
-    
-    Again, you will be prompted for the 'username' database password. At the MySQL prompt, enter the following command:
-    
-        GRANT SELECT, INSERT, DELETE, UPDATE, CREATE, DROP, ALTER, INDEX, LOCK TABLES on database.* 
-        TO 'username'@'localhost' IDENTIFIED BY 'password';
-    
-    Where:
-    - 'databasename' is the name of your database
-    - 'username@localhost' is the name of your MySQL account
-    - 'password' is the password required for that username
-
-    __NOTE: Your account must have all the privileges listed above in order to run Ushahidi on your webserver.__
-
-* ####Run the install script
-    To run the install script, point your browser to the base url of your website: (e.g. http://www.example.com).
-    
-    You will be guided through a series of screens to set up the database and site settings depending on the installation method you choose (Basic or Advanced)
-
-* ####Clean up
-    ##### Delete the installer
-    Leaving the installer files in your installation is a security risk.
-    Now you've installed successfully, **Delete the entire installer directory**
-
-    ##### Remove write permissions from config files
-
-        cd path-to-webserver-document-root-directory
-        chmod -R 755 application/config
-        chmod 644 application/config/*
-        chmod 644 .htaccess
-
-Additional Information
-----------------------
-For further references and documentation, head over to our wiki (http://wiki.ushahidi.com). Also, we encourage you to drop by our forums (https://wiki.ushahidi.com/display/forums/Ushahidi+Forums) if you have any additional questions or concerns.
