@@ -1771,19 +1771,19 @@ INSERT INTO `verified` (`id`, `incident_id`, `user_id`, `verified_date`, `verifi
 (2, 1, 1, '2014-09-07 18:05:37', 1);
 
 -- --------------------------------------------------------
-
---
--- Structure for view `sharing_combined_incident`
---
-DROP TABLE IF EXISTS `sharing_combined_incident`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`template`@`localhost` SQL SECURITY INVOKER VIEW `sharing_combined_incident` AS select `incident`.`id` AS `id`,`incident`.`incident_title` AS `incident_title`,`incident`.`incident_description` AS `incident_description`,`incident`.`incident_date` AS `incident_date`,`incident`.`incident_mode` AS `incident_mode`,`incident`.`location_id` AS `location_id`,`incident`.`incident_active` AS `incident_active`,`incident`.`incident_verified` AS `incident_verified`,'main' AS `source`,NULL AS `source_url` from `incident` union select `sharing_incident`.`id` AS `id`,`sharing_incident`.`incident_title` AS `incident_title`,`sharing_incident`.`incident_description` AS `incident_description`,`sharing_incident`.`incident_date` AS `incident_date`,`sharing_incident`.`incident_mode` AS `incident_mode`,`sharing_incident`.`location_id` AS `location_id`,`sharing_incident`.`incident_active` AS `incident_active`,`sharing_incident`.`incident_verified` AS `incident_verified`,`sharing_incident`.`sharing_site_id` AS `source`,`sharing_site`.`site_url` AS `source_url` from (`sharing_incident` left join `sharing_site` on((`sharing_incident`.`sharing_site_id` = `sharing_site`.`id`)));
-
--- --------------------------------------------------------
-
---
--- Structure for view `sharing_combined_incident_category`
---
-DROP TABLE IF EXISTS `sharing_combined_incident_category`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`template`@`localhost` SQL SECURITY INVOKER VIEW `sharing_combined_incident_category` AS select `incident_category`.`incident_id` AS `incident_id`,NULL AS `sharing_incident_id`,`incident_category`.`category_id` AS `category_id` from `incident_category` union select NULL AS `incident_id`,`sharing_incident_category`.`sharing_incident_id` AS `sharing_incident_id`,`sharing_incident_category`.`category_id` AS `category_id` from `sharing_incident_category`;
+-- 
+-- --
+-- -- Structure for view `sharing_combined_incident`
+-- --
+-- DROP TABLE IF EXISTS `sharing_combined_incident`;
+-- 
+-- CREATE ALGORITHM=UNDEFINED DEFINER=`template`@`localhost` SQL SECURITY INVOKER VIEW `sharing_combined_incident` AS select `incident`.`id` AS `id`,`incident`.`incident_title` AS `incident_title`,`incident`.`incident_description` AS `incident_description`,`incident`.`incident_date` AS `incident_date`,`incident`.`incident_mode` AS `incident_mode`,`incident`.`location_id` AS `location_id`,`incident`.`incident_active` AS `incident_active`,`incident`.`incident_verified` AS `incident_verified`,'main' AS `source`,NULL AS `source_url` from `incident` union select `sharing_incident`.`id` AS `id`,`sharing_incident`.`incident_title` AS `incident_title`,`sharing_incident`.`incident_description` AS `incident_description`,`sharing_incident`.`incident_date` AS `incident_date`,`sharing_incident`.`incident_mode` AS `incident_mode`,`sharing_incident`.`location_id` AS `location_id`,`sharing_incident`.`incident_active` AS `incident_active`,`sharing_incident`.`incident_verified` AS `incident_verified`,`sharing_incident`.`sharing_site_id` AS `source`,`sharing_site`.`site_url` AS `source_url` from (`sharing_incident` left join `sharing_site` on((`sharing_incident`.`sharing_site_id` = `sharing_site`.`id`)));
+-- 
+-- -- --------------------------------------------------------
+-- 
+-- --
+-- -- Structure for view `sharing_combined_incident_category`
+-- --
+-- DROP TABLE IF EXISTS `sharing_combined_incident_category`;
+-- 
+-- CREATE ALGORITHM=UNDEFINED DEFINER=`template`@`localhost` SQL SECURITY INVOKER VIEW `sharing_combined_incident_category` AS select `incident_category`.`incident_id` AS `incident_id`,NULL AS `sharing_incident_id`,`incident_category`.`category_id` AS `category_id` from `incident_category` union select NULL AS `incident_id`,`sharing_incident_category`.`sharing_incident_id` AS `sharing_incident_id`,`sharing_incident_category`.`category_id` AS `category_id` from `sharing_incident_category`;
